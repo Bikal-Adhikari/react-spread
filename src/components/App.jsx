@@ -1,21 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
+import Form from "./Form";
+import List from "./List";
 
 function App() {
+  const [list, setList] = useState([]);
+  const getItems = (name) => {
+    setList([...list, name]);
+  };
   return (
     <div className="container">
       <div className="heading">
         <h1>To-Do List</h1>
       </div>
       <div className="form">
-        <input type="text" />
-        <button>
-          <span>Add</span>
-        </button>
+        <Form getItems={getItems} />
       </div>
       <div>
-        <ul>
-          <li>A Item</li>
-        </ul>
+        <List list={list} />
       </div>
     </div>
   );
