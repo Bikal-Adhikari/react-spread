@@ -1,12 +1,14 @@
 import React from "react";
 
-const List = ({ list = [] }) => {
+const List = (props) => {
   return (
-    <ul>
-      {list.map((name, i) => {
-        return <li key={i}>{name}</li>;
-      })}
-    </ul>
+    <div
+      onClick={() => {
+        props.onChecked(props.id);
+      }}
+    >
+      <li>{props.text}</li>
+    </div>
   );
 };
 
